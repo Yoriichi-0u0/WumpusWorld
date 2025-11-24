@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wumpus World // Cyber Neon</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="hero">
+    <div>
+      <p class="eyebrow">Neon Simulation</p>
+      <h1>Wumpus World</h1>
+      <p class="lede">Hunt the Wumpus in a neon-lit grid. Use your senses to survive pits, grab the gold, and escape alive.</p>
+      <div class="cta-row">
+        <button id="new-world" class="primary">Generate New World</button>
+        <button id="quick-restart" class="ghost">Reset Current</button>
+      </div>
+    </div>
+    <div class="panel stats">
+      <div>
+        <span class="label">Grid</span>
+        <div class="range-wrap">
+          <input type="range" id="size" min="4" max="8" value="5" />
+          <span id="size-value">5x5</span>
+        </div>
+      </div>
+      <div>
+        <span class="label">Arrow</span>
+        <p id="arrow-status">Loaded</p>
+      </div>
+      <div>
+        <span class="label">Status</span>
+        <p id="game-status">Initializing...</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="panel board-panel">
+      <div class="board-header">
+        <div>
+          <p class="label">Senses</p>
+          <p id="senses" class="accent">Stench: ?, Breeze: ?, Glitter: ?</p>
+        </div>
+        <div>
+          <p class="label">Direction</p>
+          <p id="direction" class="accent">East</p>
+        </div>
+      </div>
+      <div id="grid" class="grid"></div>
+      <p class="hint">Tip: Use the neon pad to move, rotate, and shoot. Mobile friendly touch controls included.</p>
+    </section>
+
+    <section class="panel control-panel">
+      <h2>Control Pad</h2>
+      <div class="pad">
+        <button class="pad-btn" data-action="turn-left" aria-label="Turn left">⟲</button>
+        <button class="pad-btn" data-action="move" data-direction="north" aria-label="Move north">▲</button>
+        <button class="pad-btn" data-action="turn-right" aria-label="Turn right">⟳</button>
+        <button class="pad-btn" data-action="move" data-direction="west" aria-label="Move west">◀</button>
+        <button class="pad-btn" data-action="shoot" aria-label="Shoot arrow">✦</button>
+        <button class="pad-btn" data-action="move" data-direction="east" aria-label="Move east">▶</button>
+        <button class="pad-btn" data-action="pickup" aria-label="Pick up gold">⬒</button>
+        <button class="pad-btn" data-action="move" data-direction="south" aria-label="Move south">▼</button>
+        <button class="pad-btn" data-action="reset" aria-label="Restart world">↻</button>
+      </div>
+      <div class="inline-actions">
+        <button id="toggle-hints" class="ghost">Toggle Hints</button>
+        <button id="reveal" class="ghost">Reveal Board</button>
+      </div>
+      <div class="log">
+        <p class="label">Log</p>
+        <ul id="log"></ul>
+      </div>
+      <div class="legend">
+        <h3>Legend</h3>
+        <div class="legend-row"><span class="legend-swatch agent"></span> You</div>
+        <div class="legend-row"><span class="legend-swatch wumpus"></span> Wumpus</div>
+        <div class="legend-row"><span class="legend-swatch pit"></span> Pit</div>
+        <div class="legend-row"><span class="legend-swatch gold"></span> Gold</div>
+        <div class="legend-row"><span class="legend-swatch visited"></span> Visited</div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Tap or click the grid to set a facing direction. Optimized for phone, tablet, laptop, and desktop.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
